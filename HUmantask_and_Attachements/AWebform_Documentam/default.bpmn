@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions fileRevision="20120217" version="11.1.1.7.0.2.22" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns2="http://xmlns.oracle.com/bpm/OracleExtensions" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns4="http://www.omg.org/spec/DD/20100524/DC" xmlns:ns3="http://www.omg.org/spec/DD/20100524/DI" xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <process processType="Public" isExecutable="true" name="default" id="default">
+        <extensionElements>
+            <ns2:OracleExtensions>
+                <ns2:FeatureSet>
+                    <ns2:BooleanFeature value="false" name="atomic"/>
+                    <ns2:BooleanFeature value="false" name="instanceScreenflow"/>
+                    <ns2:BooleanFeature value="true" name="relative-coordinates"/>
+                    <ns2:BooleanFeature value="true" name="sharePredefineVariables"/>
+                    <ns2:BooleanFeature value="true" name="suspendInstanceOnDataAssociationError"/>
+                    <ns2:StringFeature value="" name="ANALYTICS_VIEW_IDENTIFIER"/>
+                    <ns2:StringFeature value="" name="AUTHOR"/>
+                    <ns2:StringFeature value="default" name="GreedyExecutionMode"/>
+                    <ns2:StringFeature value="" name="NAMESPACE"/>
+                    <ns2:StringFeature value="PROJECT_DEFAULT" name="generatesEvents"/>
+                    <ns2:StringFeature value="HORIZONTAL_LAYOUT" name="process-layout"/>
+                    <ns2:StringFeature value="1.0" name="scale"/>
+                    <ns2:StringFeature value="REGULAR" name="sealType"/>
+                </ns2:FeatureSet>
+                <ns2:CorrelationPropertyAliasExpressionModeMap/>
+                <ns2:Conversations>
+                    <ns2:Conversation id="CONVERSATION147977312181" type="define_interface">
+                        <ns2:DefineInterfaceConversationDefinition exposeSOAPService="true"/>
+                    </ns2:Conversation>
+                </ns2:Conversations>
+                <ns2:ApplicationInfo>
+                    <ns2:AppLinkName/>
+                    <ns2:Description/>
+                    <ns2:AppTags/>
+                    <ns2:AppCategory/>
+                    <ns2:AppExternalDocuments/>
+                </ns2:ApplicationInfo>
+            </ns2:OracleExtensions>
+        </extensionElements>
+        <laneSet>
+            <lane name="AutomaticHandler" id="lane0">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes backgroundColor="-1761607681">
+                            <ns2:Position x="0" y="0"/>
+                            <ns2:Size width="450" height="0"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:LaneAttributes roleId="AutomaticHandler"/>
+                        <ns2:FeatureSet/>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </lane>
+        </laneSet>
+        <startEvent isInterrupting="false" name="Start" id="EVT14797731218032">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:GraphicsAttributes>
+                        <ns2:Position x="100" y="225"/>
+                    </ns2:GraphicsAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="catchAllErrors"/>
+                        <ns2:BooleanFeature value="false" name="catchAllSystemExceptions"/>
+                        <ns2:BooleanFeature value="false" name="isDraft"/>
+                        <ns2:BooleanFeature value="false" name="outputValidation"/>
+                        <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                        <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                    </ns2:FeatureSet>
+                    <ns2:Conversational conversation="CONVERSATION147977312181">
+                        <ns2:DefineInterfaceConversationalDefinition definedOperationName="start"/>
+                    </ns2:Conversational>
+                    <ns2:LogHandlers/>
+                </ns2:OracleExtensions>
+            </extensionElements>
+            <outputSet/>
+            <messageEventDefinition/>
+        </startEvent>
+        <endEvent name="End" id="EVT14797731218118">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:GraphicsAttributes>
+                        <ns2:Position x="200" y="225"/>
+                    </ns2:GraphicsAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="catchAllErrors"/>
+                        <ns2:BooleanFeature value="false" name="catchAllSystemExceptions"/>
+                        <ns2:BooleanFeature value="false" name="inputValidation"/>
+                        <ns2:BooleanFeature value="false" name="isDraft"/>
+                        <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                        <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                    </ns2:FeatureSet>
+                    <ns2:Conversational conversation="CONVERSATION147977312181">
+                        <ns2:DefineInterfaceConversationalDefinition definedOperationName="end"/>
+                    </ns2:Conversational>
+                    <ns2:LogHandlers/>
+                </ns2:OracleExtensions>
+            </extensionElements>
+            <inputSet/>
+            <messageEventDefinition/>
+        </endEvent>
+        <sequenceFlow sourceRef="EVT14797731218032" targetRef="EVT14797731218118" name="sf18" id="sf18">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:SequenceFlowAttributes/>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                        <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                        <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                    </ns2:FeatureSet>
+                </ns2:OracleExtensions>
+            </extensionElements>
+        </sequenceFlow>
+    </process>
+</definitions>

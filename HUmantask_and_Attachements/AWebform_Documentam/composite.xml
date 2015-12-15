@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fuego version="11.1.1.7.0.2.22" build="2.22"?>
+<composite xmlns:ui="http://xmlns.oracle.com/soa/designer/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+           xmlns:ns3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+           xmlns="http://xmlns.oracle.com/sca/1.0"
+           xmlns:ns6="http://www.w3.org/2000/09/xmldsig#"
+           xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
+           xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+           name="AWebform_Documentam" revision="13.0"
+           label="2015-12-08_15-42-46_378" mode="active" state="on">
+ <import location="AWebformDocumentamProcess.wsdl" importType="wsdl"
+         namespace="http://xmlns.oracle.com/bpmn/bpmnProcess/AWebformDocumentamProcess"/>
+ <import location="oramds:/soa/shared/workflow/TaskServiceInterface.wsdl"
+         importType="wsdl"
+         namespace="http://xmlns.oracle.com/bpel/workflow/taskService"/>
+ <service name="AWebformDocumentamProcess.service"
+          ui:wsdlLocation="AWebformDocumentamProcess.wsdl">
+  <interface.wsdl interface="http://xmlns.oracle.com/bpmn/bpmnProcess/AWebformDocumentamProcess#wsdl.interface(AWebformDocumentamProcessPortType)"
+                  callbackInterface="http://xmlns.oracle.com/bpmn/bpmnProcess/AWebformDocumentamProcess#wsdl.interface(AWebformDocumentamProcessPortTypeCallBack)"/>
+  <binding.ws port="http://xmlns.oracle.com/bpmn/bpmnProcess/AWebformDocumentamProcess#wsdl.endpoint(AWebformDocumentamProcess.service/AWebformDocumentamProcessPort)"/>
+  <callback>
+   <binding.ws port="http://xmlns.oracle.com/bpmn/bpmnProcess/AWebformDocumentamProcess#wsdl.endpoint(AWebformDocumentamProcess.service/AWebformDocumentamProcessPortTypeCallBack_pt)"/>
+  </callback>
+ </service>
+ <property name="productVersion" type="xs:string" many="false">11.1.1.7.8</property>
+ <component name="AWebformDocumentamProcess">
+  <implementation.bpmn src="processes/AWebformDocumentamProcess.bpmn"/>
+ </component>
+ <component name="AWebform_DocumentamHumantask">
+  <implementation.workflow src="AWebform_DocumentamHumantask.task"/>
+ </component>
+ <wire>
+  <source.uri>AWebformDocumentamProcess/HumanTasks.AWebform_DocumentamHumantask.reference</source.uri>
+  <target.uri>AWebform_DocumentamHumantask/TaskService</target.uri>
+ </wire>
+ <wire>
+  <source.uri>AWebformDocumentamProcess.service</source.uri>
+  <target.uri>AWebformDocumentamProcess/AWebformDocumentamProcess.service</target.uri>
+ </wire>
+</composite>
